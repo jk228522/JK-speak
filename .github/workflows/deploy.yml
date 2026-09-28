@@ -21,8 +21,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-
-       cache: 'npm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          # 'cache: npm' हटा दिया गया है ताकि package-lock.json की ज़रूरत न पड़े
 
       - name: Install dependencies
         run: npm install
